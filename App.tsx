@@ -7,54 +7,43 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
-        <Text style={styles.firsttoprowContainer}>My Portfolio App</Text>
+        <Text style={styles.firstTopRowContainer}>My Portfolio App</Text>
         <View style={styles.rowTopSecondContainer}>
-        <Pressable style={styles.buttonruta} onPress={() => setDisplayMyQR(true)}>
-          <Text style={{...{color: 'white', fontWeight: 'bold', textTransform: 'uppercase'}, ...styles.shadoxboxing}}>Mi info</Text>
-        </Pressable>
-        <Button onPress={() => setDisplayMyQR(false)} title="Mi Repo" color="light-gray" accessibilityLabel='Un botón pal QR' />
+          <Pressable style={styles.routeButton} onPress={() => setDisplayMyQR(true)}>
+            <Text style={styles.infoButton}>Mi info</Text>
+          </Pressable>
+          <Button onPress={() => setDisplayMyQR(false)} title="Mi Repo" color="light-gray" accessibilityLabel='Un botón pal QR' />
         </View>
       </View>
       {
         displayMyQR ?
-          <View style={styles.bodystails}>
+          <View style={styles.body}>
             <View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Image style={styles.avatar} source={require('./assets/SofyanAmrabat.jpg')}></Image>
-              <View style={{margin: 10, backgroundColor: 'lightgray', padding: 10, borderRadius: 10, width: '70%'}}>
-            <Text style={{textAlign:'center', fontWeight: '700', fontSize: 20}}>
-            Descripción sobre mí!
-            </Text>
-            <Text>
-              Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar prácticas para mis queridos alumnos
-            </Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Image style={styles.userImage} source={require('./assets/SofyanAmrabat.jpg')}></Image>
+                <View style={{ margin: 10, backgroundColor: 'lightgray', padding: 10, borderRadius: 10, width: '70%' }}>
+                  <Text style={{ textAlign: 'center', fontWeight: '700', fontSize: 20 }}>
+                    Descripción sobre mí!
+                  </Text>
+                  <Text>
+                    Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar prácticas para mis queridos alumnos
+                  </Text>
+                </View>
               </View>
-              </View>
-            <Text style= {{color: 'beriblak', fontWeight: "900", textTransform: 'capitalize', fontSize: 20, textAlign: 'center'}}>
-              cosas que me gustan mucho:
-            </Text>
-            <ScrollView style={{padding: 10}}>
-              <Text style={styles.cosasQmeGustanMuxoEstails}>Salir a pasear</Text>
-          <Text style={styles.cosasQmeGustanMuxoEstails}>Senderismo</Text>
-            <Text style={styles.cosasQmeGustanMuxoEstails}>Ir a la playita</Text>
-            <Text style={styles.cosasQmeGustanMuxoEstails}>Domingos de misa</Text>
-              <Text style={styles.cosasQmeGustanMuxoEstails}>La guitarrita</Text>
-            <Text style={styles.cosasQmeGustanMuxoEstails}>El monte con lluvia</Text>
-              <Text style={styles.cosasQmeGustanMuxoEstails}>Viajar</Text>
-     <Text style={styles.cosasQmeGustanMuxoEstails}>Música variadita</Text>
-              <Text style={styles.cosasQmeGustanMuxoEstails}>Anime</Text>
-        <Text style={styles.cosasQmeGustanMuxoEstails}>Ducharme</Text>
-              <Text style={styles.cosasQmeGustanMuxoEstails}>Videojuegos</Text>
-      <Text style={styles.cosasQmeGustanMuxoEstails}>Ir de cenar romántica</Text>
-            </ScrollView>
+              <Text style={{ color: 'beriblak', fontWeight: "900", textTransform: 'capitalize', fontSize: 20, textAlign: 'center' }}>
+                cosas que me gustan mucho:
+              </Text>
+              <ScrollView style={{ padding: 10 }}>
+                
+              </ScrollView>
             </View>
           </View>
           :
-              <View style={styles.bodystails}>
+          <View style={styles.body}>
             <View style={styles.CentrarcodigoQR}>
-          <QRCode value="https://github.com/adhernea" />
+              <QRCode value="https://github.com/adhernea" />
             </View>
-              </View>
+          </View>
       }
     </View>
   );
@@ -72,7 +61,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     width: '100%',
   },
-  firsttoprowContainer: {
+  firstTopRowContainer: {
     backgroundColor: 'gray',
     textAlign: 'center',
     fontWeight: 'bold',
@@ -85,10 +74,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  buttonruta: {
-    width:'50%',
+  infoButton: {
+    color: 'white', 
+    fontWeight: 'bold', 
+    textTransform: 'uppercase'
   },
-  bodystails: {
+  routeButton: {
+    width: '50%',
+  },
+  body: {
     width: '100%',
     borderWidth: 2,
     borderColor: 'black',
@@ -96,12 +90,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height: '85%'
   },
-  avatar: {
+  userImage: {
     height: 90,
     width: 90,
     borderRadius: 100
   },
-  cosasQmeGustanMuxoEstails: {
+  hobby: {
     borderColor: 'black',
     borderWidth: 1,
     borderStyle: 'dashed',
@@ -119,16 +113,5 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center'
-  },
-  shadoxboxing: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.43,
-    shadowRadius: 9.51,
-
-    elevation: 15,
   }
 });
